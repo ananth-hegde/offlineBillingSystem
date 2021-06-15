@@ -1,4 +1,3 @@
-from pickle import TRUE
 import sys
 import types
 import os
@@ -434,7 +433,7 @@ class CompanyDetails(QDialog):
             self.companyLogoText.setText(fileName)
             
     def addBarCode(self):
-        fileName = QtWidgets.QFileDialog.getOpenFileName(self,"Select Logo Image", "", "Image Files (*.png *.jpg *.bmp)")
+        fileName = QtWidgets.QFileDialog.getOpenFileName(self,"Select Bar Code Image", "", "Image Files (*.png *.jpg *.bmp)")
         if(fileName):
             fileName = fileName[0]
             self.companyBarCodeText.setText(fileName)
@@ -538,7 +537,7 @@ class CreateInvoice(QDialog):
             os.makedirs(dir)
         if(self.invoiceNumberText.text().strip()==""):
             onlyfiles = next(os.walk(dir))[2]
-            invoiceNumber = int((len(onlyfiles)/3)+1)
+            invoiceNumber = int((len(onlyfiles))+1)
         else:
             invoiceNumber = int(self.invoiceNumberText.text().strip())
         self.printInvoice("Original",invoiceNumber)
@@ -1580,17 +1579,17 @@ if __name__ == '__main__':
     caReport = CaReport()
     salesReport = SalesReport()
     addCustomers = AddCustomers()
-    widgetStack.addWidget(ogMainWindow) 
-    widgetStack.addWidget(mainWindow) 
-    widgetStack.addWidget(homePage) 
-    widgetStack.addWidget(companyDetails) 
-    widgetStack.addWidget(createInvoice)
-    widgetStack.addWidget(addItems)
-    widgetStack.addWidget(stockDetails)
-    widgetStack.addWidget(addStock)
-    widgetStack.addWidget(caReport)
-    widgetStack.addWidget(salesReport)
-    widgetStack.addWidget(addCustomers)
+    widgetStack.addWidget(ogMainWindow) #0
+    widgetStack.addWidget(mainWindow) #1
+    widgetStack.addWidget(homePage) #2
+    widgetStack.addWidget(companyDetails)  #3
+    widgetStack.addWidget(createInvoice) #4
+    widgetStack.addWidget(addItems) #5
+    widgetStack.addWidget(stockDetails) #6 
+    widgetStack.addWidget(addStock) #7
+    widgetStack.addWidget(caReport) #8
+    widgetStack.addWidget(salesReport) #9
+    widgetStack.addWidget(addCustomers) #10
     widgetStack.setCurrentIndex(1)
     widgetStack.showMaximized()
     try:
