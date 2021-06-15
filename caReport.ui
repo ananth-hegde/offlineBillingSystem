@@ -118,6 +118,22 @@
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="addCustomersBtn">
+        <property name="minimumSize">
+         <size>
+          <width>239</width>
+          <height>51</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color:  rgb(27, 30, 36); color: rgb(255, 255, 221)</string>
+        </property>
+        <property name="text">
+         <string>ADD CUSTOMERS</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPushButton" name="createInvoiceBtn">
         <property name="minimumSize">
          <size>
@@ -215,7 +231,7 @@
          <string notr="true">background-color: rgb(27, 30, 36); color: rgb(255, 255, 221);padding-top:10px</string>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Designed and Developed By &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Bravery Engineering and Services Pvt. Ltd.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Designed and Developed By &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;SDMCET Department of CSE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="scaledContents">
          <bool>true</bool>

@@ -38,6 +38,22 @@
    <property name="bottomMargin">
     <number>0</number>
    </property>
+   <item row="2" column="1">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>100</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
    <item row="0" column="0" colspan="2">
     <widget class="QLabel" name="label">
      <property name="minimumSize">
@@ -59,22 +75,6 @@
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Company Name&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-   </item>
-   <item row="2" column="1">
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeType">
-      <enum>QSizePolicy::Fixed</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>100</height>
-      </size>
-     </property>
-    </spacer>
    </item>
    <item row="1" column="0" rowspan="2">
     <widget class="QWidget" name="widget_2" native="true">
@@ -152,6 +152,22 @@
         </property>
         <property name="text">
          <string>ADD ITEMS</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="addCustomersBtn">
+        <property name="minimumSize">
+         <size>
+          <width>239</width>
+          <height>51</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color:  rgb(27, 30, 36); color: rgb(255, 255, 221)</string>
+        </property>
+        <property name="text">
+         <string>ADD CUSTOMERS</string>
         </property>
        </widget>
       </item>
@@ -253,7 +269,7 @@
          <string notr="true">background-color: rgb(27, 30, 36); color: rgb(255, 255, 221);padding-top:10px</string>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Designed and Developed By &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Bravery Engineering and Services Pvt. Ltd.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Designed and Developed By &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;SDMCET Department of CSE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -281,7 +297,14 @@
       <enum>QFrame::Raised</enum>
      </property>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="3" column="10">
+      <item row="5" column="3">
+       <widget class="QLineEdit" name="productNameText">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="10">
        <widget class="QLabel" name="label_27">
         <property name="styleSheet">
          <string notr="true">border:none</string>
@@ -291,14 +314,27 @@
         </property>
        </widget>
       </item>
-      <item row="5" column="0" colspan="18">
-       <widget class="QTableWidget" name="tableView">
+      <item row="1" column="4">
+       <widget class="QLabel" name="label_17">
         <property name="styleSheet">
-         <string notr="true">margin-right:0</string>
+         <string notr="true">border:none</string>
+        </property>
+        <property name="text">
+         <string>Phone</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="12">
+      <item row="2" column="4">
+       <widget class="QLabel" name="label_18">
+        <property name="styleSheet">
+         <string notr="true">border:none</string>
+        </property>
+        <property name="text">
+         <string>P.O.No</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="12">
        <widget class="QLabel" name="label_25">
         <property name="styleSheet">
          <string notr="true">border:none</string>
@@ -308,40 +344,99 @@
         </property>
        </widget>
       </item>
-      <item row="6" column="1" rowspan="2">
-       <widget class="QLabel" name="label_30">
+      <item row="0" column="9" colspan="2">
+       <widget class="QLineEdit" name="lrNumberText">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="5" colspan="2">
+       <widget class="QLineEdit" name="phoneText">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="5" colspan="2">
+       <widget class="QLineEdit" name="pqNumberText">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_15">
         <property name="styleSheet">
          <string notr="true">border:none</string>
         </property>
         <property name="text">
-         <string>Discount %</string>
+         <string>ADD</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="5" colspan="2">
+       <widget class="QLineEdit" name="mobileText">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0" colspan="17">
+       <widget class="QTableWidget" name="tableView">
+        <property name="styleSheet">
+         <string notr="true">margin-right:0</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="6" colspan="2">
+       <widget class="QLabel" name="label_23">
+        <property name="styleSheet">
+         <string notr="true">border:none</string>
+        </property>
+        <property name="text">
+         <string>Unit</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="9" colspan="2">
+       <widget class="QLineEdit" name="transportText">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="6" colspan="2">
+       <widget class="QLineEdit" name="unitText">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="5">
+       <widget class="QLabel" name="label_14">
+        <property name="styleSheet">
+         <string notr="true">border:none</string>
+        </property>
+        <property name="text">
+         <string>Quantity</string>
         </property>
        </widget>
       </item>
       <item row="4" column="8" colspan="2">
-       <widget class="QLineEdit" name="priceText">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="10">
-       <widget class="QLineEdit" name="cgstText">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
+       <widget class="QLabel" name="label_24">
         <property name="styleSheet">
-         <string notr="true">margin:0</string>
+         <string notr="true">border:none</string>
         </property>
         <property name="text">
-         <string/>
+         <string>Price</string>
         </property>
        </widget>
       </item>
-      <item row="8" column="17" rowspan="2">
+      <item row="8" column="16" rowspan="2">
        <widget class="QPushButton" name="clearInvoiceBtn">
         <property name="minimumSize">
          <size>
@@ -363,62 +458,21 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="11" colspan="4">
-       <widget class="QLabel" name="label_11">
-        <property name="styleSheet">
-         <string notr="true">border:none</string>
-        </property>
-        <property name="text">
-         <string>Payment Type</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1" colspan="3">
-       <widget class="QLineEdit" name="addText"/>
-      </item>
-      <item row="2" column="9" colspan="2">
-       <widget class="QComboBox" name="saleTypeList">
-        <property name="styleSheet">
-         <string notr="true">margin:0</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1" colspan="4">
-       <widget class="QComboBox" name="itemNameList">
-        <property name="styleSheet">
-         <string notr="true">margin:0</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="5">
-       <widget class="QLineEdit" name="qtyText">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="6" colspan="2">
-       <widget class="QLineEdit" name="unitText">
+      <item row="5" column="10">
+       <widget class="QLineEdit" name="cgstText">
         <property name="enabled">
          <bool>true</bool>
         </property>
+        <property name="styleSheet">
+         <string notr="true">margin:0</string>
+        </property>
         <property name="text">
          <string/>
         </property>
        </widget>
       </item>
-      <item row="3" column="6" colspan="2">
-       <widget class="QLabel" name="label_23">
-        <property name="styleSheet">
-         <string notr="true">border:none</string>
-        </property>
-        <property name="text">
-         <string>Unit</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="5" colspan="2">
-       <widget class="QLineEdit" name="phoneText">
+      <item row="5" column="5">
+       <widget class="QLineEdit" name="qtyText">
         <property name="text">
          <string/>
         </property>
@@ -431,30 +485,13 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="7" colspan="2">
-       <widget class="QLabel" name="label_21">
-        <property name="styleSheet">
-         <string notr="true">border:none</string>
+      <item row="5" column="8" colspan="2">
+       <widget class="QLineEdit" name="priceText">
+        <property name="enabled">
+         <bool>true</bool>
         </property>
-        <property name="text">
-         <string>SALE TYPE</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="5" colspan="2">
-       <widget class="QLineEdit" name="pqNumberText">
         <property name="text">
          <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="5">
-       <widget class="QLabel" name="label_14">
-        <property name="styleSheet">
-         <string notr="true">border:none</string>
-        </property>
-        <property name="text">
-         <string>Quantity</string>
         </property>
        </widget>
       </item>
@@ -468,141 +505,22 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="4">
-       <widget class="QLabel" name="label_17">
-        <property name="styleSheet">
-         <string notr="true">border:none</string>
-        </property>
-        <property name="text">
-         <string>Phone</string>
-        </property>
-       </widget>
+      <item row="1" column="1" colspan="3">
+       <widget class="QLineEdit" name="addText"/>
       </item>
-      <item row="1" column="9" colspan="2">
-       <widget class="QLineEdit" name="transportText">
-        <property name="text">
-         <string/>
+      <item row="9" column="3">
+       <widget class="QLineEdit" name="amountInWordsText">
+        <property name="enabled">
+         <bool>false</bool>
         </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_15">
-        <property name="styleSheet">
-         <string notr="true">border:none</string>
+        <property name="minimumSize">
+         <size>
+          <width>463</width>
+          <height>18</height>
+         </size>
         </property>
-        <property name="text">
-         <string>ADD</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="8" colspan="2">
-       <widget class="QLabel" name="label_24">
-        <property name="styleSheet">
-         <string notr="true">border:none</string>
-        </property>
-        <property name="text">
-         <string>Price</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="4">
-       <widget class="QLabel" name="label_18">
-        <property name="styleSheet">
-         <string notr="true">border:none</string>
-        </property>
-        <property name="text">
-         <string>P.O.No</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="5" colspan="2">
-       <widget class="QLineEdit" name="mobileText">
         <property name="text">
          <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="9" colspan="2">
-       <widget class="QLineEdit" name="lrNumberText">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1" colspan="3">
-       <widget class="QLabel" name="label_22">
-        <property name="styleSheet">
-         <string notr="true">border:none</string>
-        </property>
-        <property name="text">
-         <string>Product Name</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="7" colspan="2">
-       <widget class="QLabel" name="label_19">
-        <property name="styleSheet">
-         <string notr="true">border:none</string>
-        </property>
-        <property name="text">
-         <string>L.R.No</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="11" colspan="4">
-       <widget class="QLabel" name="label_9">
-        <property name="styleSheet">
-         <string notr="true">border:none</string>
-        </property>
-        <property name="text">
-         <string>Invoice No</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_8">
-        <property name="styleSheet">
-         <string notr="true">border:none</string>
-        </property>
-        <property name="text">
-         <string>GST No</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="15" colspan="3">
-       <widget class="QLineEdit" name="invoiceNumberText">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="15">
-       <widget class="QComboBox" name="paymentTypeList">
-        <property name="styleSheet">
-         <string notr="true">margin:0</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="11">
-       <widget class="QLabel" name="label_10">
-        <property name="styleSheet">
-         <string notr="true">border:none</string>
-        </property>
-        <property name="text">
-         <string>DATE</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1" colspan="3">
-       <widget class="QLineEdit" name="customerNameText"/>
-      </item>
-      <item row="0" column="4">
-       <widget class="QLabel" name="label_16">
-        <property name="styleSheet">
-         <string notr="true">border:none</string>
-        </property>
-        <property name="text">
-         <string>Mobile</string>
         </property>
        </widget>
       </item>
@@ -616,7 +534,50 @@
         </property>
        </widget>
       </item>
-      <item row="8" column="14" rowspan="2" colspan="3">
+      <item row="5" column="11">
+       <widget class="QLineEdit" name="sgstText">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">margin:0</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="14" colspan="3">
+       <widget class="QLineEdit" name="invoiceNumberText">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="11">
+       <widget class="QLabel" name="label_10">
+        <property name="styleSheet">
+         <string notr="true">border:none</string>
+        </property>
+        <property name="text">
+         <string>DATE</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="12">
+       <widget class="QLineEdit" name="igstText">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">margin:0</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="13" rowspan="2" colspan="3">
        <widget class="QPushButton" name="printBtn">
         <property name="minimumSize">
          <size>
@@ -638,70 +599,27 @@
         </property>
        </widget>
       </item>
-      <item row="7" column="5" colspan="2">
-       <widget class="QLabel" name="label_28">
-        <property name="styleSheet">
-         <string notr="true">border:none</string>
-        </property>
-        <property name="text">
-         <string>Other Charges (INR)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="7" colspan="3">
-       <widget class="QLineEdit" name="otherChargesText">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="15">
+      <item row="1" column="14">
        <widget class="QDateEdit" name="dateText"/>
       </item>
-      <item row="9" column="1">
-       <widget class="QLabel" name="label_31">
+      <item row="0" column="7" colspan="2">
+       <widget class="QLabel" name="label_19">
         <property name="styleSheet">
          <string notr="true">border:none</string>
         </property>
         <property name="text">
-         <string>Amount In Words</string>
+         <string>Vehicle No</string>
         </property>
        </widget>
       </item>
-      <item row="9" column="3">
-       <widget class="QLineEdit" name="amountInWordsText">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>463</width>
-          <height>18</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="11">
-       <widget class="QLabel" name="label_29">
+      <item row="5" column="1" colspan="2">
+       <widget class="QComboBox" name="itemNameList">
         <property name="styleSheet">
-         <string notr="true">border:none</string>
-        </property>
-        <property name="text">
-         <string>SGST</string>
+         <string notr="true">margin:0</string>
         </property>
        </widget>
       </item>
-      <item row="7" column="3">
-       <widget class="QLineEdit" name="discountText">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="17" rowspan="2">
+      <item row="4" column="16" rowspan="2">
        <widget class="QPushButton" name="addToInvoiceBtn">
         <property name="minimumSize">
          <size>
@@ -723,27 +641,95 @@
         </property>
        </widget>
       </item>
-      <item row="4" column="11">
-       <widget class="QLineEdit" name="sgstText">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
+      <item row="0" column="4">
+       <widget class="QLabel" name="label_16">
         <property name="styleSheet">
-         <string notr="true">margin:0</string>
+         <string notr="true">border:none</string>
         </property>
+        <property name="text">
+         <string>Mobile</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="11" colspan="3">
+       <widget class="QLabel" name="label_9">
+        <property name="styleSheet">
+         <string notr="true">border:none</string>
+        </property>
+        <property name="text">
+         <string>Invoice No</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="11">
+       <widget class="QLabel" name="label_29">
+        <property name="styleSheet">
+         <string notr="true">border:none</string>
+        </property>
+        <property name="text">
+         <string>SGST</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1" colspan="3">
+       <widget class="QLabel" name="label_22">
+        <property name="styleSheet">
+         <string notr="true">border:none</string>
+        </property>
+        <property name="text">
+         <string>Product Name</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_8">
+        <property name="styleSheet">
+         <string notr="true">border:none</string>
+        </property>
+        <property name="text">
+         <string>GST No</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1">
+       <widget class="QLabel" name="label_31">
+        <property name="styleSheet">
+         <string notr="true">border:none</string>
+        </property>
+        <property name="text">
+         <string>Amount In Words</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="QLabel" name="label_28">
+        <property name="styleSheet">
+         <string notr="true">border:none</string>
+        </property>
+        <property name="text">
+         <string>Other Charges (INR)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="3" colspan="2">
+       <widget class="QLineEdit" name="otherChargesText">
         <property name="text">
          <string/>
         </property>
        </widget>
       </item>
-      <item row="4" column="12">
-       <widget class="QLineEdit" name="igstText">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
+      <item row="0" column="3">
+       <widget class="QLineEdit" name="customerNameText"/>
+      </item>
+      <item row="0" column="1" colspan="2">
+       <widget class="QComboBox" name="customerNameList">
         <property name="styleSheet">
          <string notr="true">margin:0</string>
         </property>
+       </widget>
+      </item>
+      <item row="2" column="7" colspan="7">
+       <widget class="QLineEdit" name="otherDetailsText">
         <property name="text">
          <string/>
         </property>
@@ -765,8 +751,6 @@
   <tabstop>dateText</tabstop>
   <tabstop>gstNumberText</tabstop>
   <tabstop>pqNumberText</tabstop>
-  <tabstop>saleTypeList</tabstop>
-  <tabstop>paymentTypeList</tabstop>
   <tabstop>itemNameList</tabstop>
   <tabstop>qtyText</tabstop>
   <tabstop>unitText</tabstop>
@@ -775,8 +759,6 @@
   <tabstop>sgstText</tabstop>
   <tabstop>igstText</tabstop>
   <tabstop>addToInvoiceBtn</tabstop>
-  <tabstop>discountText</tabstop>
-  <tabstop>otherChargesText</tabstop>
   <tabstop>amountInWordsText</tabstop>
   <tabstop>printBtn</tabstop>
   <tabstop>clearInvoiceBtn</tabstop>
