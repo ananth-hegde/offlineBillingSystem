@@ -1,7 +1,12 @@
+#names of classes, maintainibility, reusability, docs, cohesiveness, 
+#keywords, 
+
+#problem statement: Designing and developing a complete ERP 
+# (Enterprise Resource Planning)
+#Solution for a small scale company that deals with products, invoices and stock
+
 import sys
-import types
 import os
-import time
 import PyQt5.QtCore
 from PyQt5 import QtGui
 from PyQt5.QtGui import QDoubleValidator, QFont, QIntValidator
@@ -198,8 +203,6 @@ class EditStockDialog(QDialog):
         self.priceText.setValidator(QDoubleValidator())
         self.addStockLabel = QtWidgets.QLabel("Add Stock")
         self.addStockText = QtWidgets.QLineEdit("0")
-    
-        
         self.addStockText.setValidator(QIntValidator())
         self.layout.addWidget(self.nameLabel)
         self.layout.addWidget(self.nameText)
@@ -221,6 +224,7 @@ class EditStockDialog(QDialog):
         self.layout.addWidget(self.addStockText)
         self.layout.addLayout(self.hLayout)
         self.setLayout(self.layout)
+
     def accept(self,j):
         try:
             stockToAdd = int(self.addStockText.text())
@@ -239,8 +243,10 @@ class EditStockDialog(QDialog):
         with open(myFile,"wb") as output:
             pickle.dump(addStock.stockDetailsList,output,-1)
         self.done(1)
+
     def reject(self):
         self.done(0)
+
 
 class EditItemDialog(QDialog):
     def __init__(self,i,j):
@@ -266,7 +272,6 @@ class EditItemDialog(QDialog):
         self.sgstText = QtWidgets.QLineEdit(str(addItems.itemList[j].sgst))
         self.igstLabel = QtWidgets.QLabel("IGST (%)")
         self.igstText = QtWidgets.QLineEdit(str(addItems.itemList[j].igst))
-        
         self.priceText.setValidator(QDoubleValidator())
         self.igstText.setValidator(QDoubleValidator())
         self.cgstText.setValidator(QDoubleValidator())
@@ -285,6 +290,7 @@ class EditItemDialog(QDialog):
         self.layout.addWidget(self.igstText)
         self.layout.addLayout(self.hLayout)
         self.setLayout(self.layout)
+
     def accept(self,j):
         itemName = self.nameText.text()
         itemCode = self.codeText.text()
@@ -336,21 +342,38 @@ class EditItemDialog(QDialog):
                 addItems.itemList[j].cgst = itemCgst
                 addItems.itemList[j].sgst = itemSgst
                 self.done(1)
+
     def reject(self,j):
         self.done(0)
 
+#Class name: OGMainWindow
+#SuperClass name: QMainWindow
+#This window is the starting point of the program, and is the main window generated
+#when the application is started
 class OGMainWindow(QMainWindow):
     def __init__(self):
         super(OGMainWindow, self).__init__()
         self.wid = QtWidgets.QWidget(self)
         self.mainWindow = MainWindow()
         self.setCentralWidget(self.mainWindow)
+
+#Class name: MainWindow
+#SuperClass name: QDialog
+#Main Window is the first window exercised by the application.
+#It is the login page, and follows basic authentication of fixed username and password
+#Controller(s): loginClicked
+#Events: loginBtn.clicked
 class MainWindow(QDialog):
     def __init__(self):
         super(MainWindow, self).__init__()
         loadUi("mainWindow.ui", self)
         self.loginBtn.clicked.connect(self.loginClicked)
         self.passwordText.setEchoMode(QtWidgets.QLineEdit.Password)
+    #Controller name: loginClicked
+    #When the login button is clicked, this function will check the 
+    #inputted username and password and authenticate the user
+    #on valid credentials, it takes them to homepage
+    #on invalid credentials, it raises a dialog box
     def loginClicked(self):
         if(self.usernameText.text()=="admin" and self.passwordText.text()==""):
             widgetStack.setCurrentIndex(widgetStack.currentIndex()+1)
@@ -358,6 +381,12 @@ class MainWindow(QDialog):
             self.dlg = QtWidgets.QMessageBox(3,"Invalid Credentials","You have entered invalid username/password. Please try again")
             self.dlg.exec_()
 
+#Class name: HomePage
+#SuperClass name: QDialog
+#Homepage is the starting page post login. it contains the logo of the company
+#and also shows all the options available on the left hand side
+#controllers: Navigation Controllers
+#Events: Sidebar Button Clicks
 class HomePage(QDialog):
     def __init__(self):
         super(HomePage, self).__init__()
@@ -392,7 +421,15 @@ class HomePage(QDialog):
     def goToAddStock(self):
         addStock.reloadPage()
         widgetStack.setCurrentIndex(7)
-    
+
+#Class name: CompanyDetails
+#SuperClass name: QDialog
+#This screen deals with all the company details that the company will be adding to 
+# its invoice as well as its logo for customisation
+# Model(s): CompanyDetailsData
+# Controller(s): Navigation Controller, saveCompanyDetails
+#Event(s): Sidebar Button Clicks, saveDetailsBtn.clicked
+
 class CompanyDetails(QDialog):
     def __init__(self):
         super(CompanyDetails, self).__init__()
@@ -501,6 +538,12 @@ class CompanyDetails(QDialog):
         addStock.reloadPage()
         widgetStack.setCurrentIndex(7)
 
+#Class name: CreateInvoice
+#SuperClass name: QDialog
+#This Screen deals with creation of the invoice and its pdf generation
+#Model(s): InvoiceDetailsData
+#Controller(s): Navigation Controllers, printInvoices, addItemToInvoice, clearInvoice
+#Event(s): Sidebar Button Clicks, printBtn.clicked, addToInvoiceBtn.clicked, clearInvoiceBtn.clicked
 class CreateInvoice(QDialog):
     def __init__(self):
         super(CreateInvoice, self).__init__()
@@ -1036,7 +1079,13 @@ class AddItems(QDialog):
     def goToAddStock(self):
         addStock.reloadPage()
         addStock.reloadPage()
-        widgetStack.setCurrentIndex(7)   
+        widgetStack.setCurrentIndex(7)  
+
+#Class name: StockDetails
+# SuperClass name: QDialog
+# Model(s): StockDetailsData
+# Controller(s): Navigation Controller, applyDetails
+# Event(s): Sidebar Button Clicks, applyBtn.clicked
 class StockDetails(QDialog):
     def __init__(self):
         super(StockDetails, self).__init__()
@@ -1126,8 +1175,6 @@ class StockDetails(QDialog):
         self.itemNameList.clear()
         for i in addItems.itemList:
             self.itemNameList.addItem(i.name)
-        
-        
     def goToHomepage(self):
         widgetStack.setCurrentIndex(2)
     def goToCompanyDetails(self):
@@ -1142,6 +1189,12 @@ class StockDetails(QDialog):
         addStock.reloadPage()
         widgetStack.setCurrentIndex(7)
 
+# Class name: AddStock
+# SuperClass name: QDialog
+# This screen deals with addition of stock for individual items
+# Model: ItemDetailsData
+# Controller(s): Navigation Controller, (handleButtonClicked,EditStockDialog)
+# Event(s) : Sidebar Button Clicks, btn_sell.clicked
 class AddStock(QDialog):
     def __init__(self):
         super(AddStock, self).__init__()
@@ -1221,6 +1274,14 @@ class AddStock(QDialog):
         stockDetails.reloadPage()
         widgetStack.setCurrentIndex(6)
 
+#Class name: CAReport
+#SuperClass name: QDialog
+#This class deals with the CA Report Screen, a screen that tabulates 
+# total sales in a given period of time and applies a percentage to be paid as 
+# GST
+#Model: InvoiceDetailsData
+#Controller(s) : Navigation Controller, loadPage
+#Event(s): Sidebar button clicks, applyBtn.clicked
 class CaReport(QDialog):
     def __init__(self):
         super(CaReport, self).__init__()
@@ -1451,7 +1512,13 @@ class SalesReport(QDialog):
         addStock.reloadPage()
         widgetStack.setCurrentIndex(7)
 
-
+# Class Name: AddCustomers
+# SuperClass Name: QDialog
+# This class deals with the add customers screen, a screen used to add common
+# Customers so that their details can be instantly added to invoices
+# Model(s): CustomerDetailsData
+# Controller(s): Navigation Controller, addCustomer
+# Event(s): Sidebar Button Clicks, addCustomerBtn.clicked
 class AddCustomers(QDialog):
     def __init__(self):
         super(AddCustomers, self).__init__()

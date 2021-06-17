@@ -27,7 +27,7 @@ class CompanyDetailsData():
         self.acNumber = acNumber
         self.barCode = barCode
         self.logo = logo
-        
+    
 class itemDetailsData():
     def __init__(self,name,price,code,igst,cgst,sgst):
         self.name = name

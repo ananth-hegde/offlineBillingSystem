@@ -21,9 +21,6 @@ class Tests:
         qtbot.add_widget(widgetStack)
         #Test with no username and password
         qtbot.mouseClick(mainWindow.loginBtn, QtCore.Qt.LeftButton)
-        #Test with username and password
-        mainWindow.usernameText.setText('admin')
-        qtbot.mouseClick(mainWindow.loginBtn, QtCore.Qt.LeftButton)
         
     def testLoginCorrect(self,qtbot):
         app = QApplication(sys.argv)
